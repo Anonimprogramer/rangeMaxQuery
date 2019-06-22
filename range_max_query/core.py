@@ -16,16 +16,16 @@ class SegmentTreeNode:
         self.right = None
 
 
-class rangeMaxQuery:
+class RangeMaxQuery:
     def __init__(self, A):
         """
         initialize the data stucture
         @param: list A
         """
         
-        self.root = self.buildhelper(0, len(A) - 1, A)
+        self.root = self.build_helper(0, len(A) - 1, A)
 
-    def buildhelper(self, left, right, A):
+    def build_helper(self, left, right, A):
         """
         build the data structure
         @param: int left: left index
@@ -42,8 +42,8 @@ class rangeMaxQuery:
             return root 
 
         mid = (left + right) // 2
-        root.left = self.buildhelper(left, mid, A)
-        root.right = self.buildhelper(mid+1, right, A)
+        root.left = self.build_helper(left, mid, A)
+        root.right = self.build_helper(mid+1, right, A)
         root.max = max(root.left.max, root.right.max)
 
         return root 
@@ -79,15 +79,15 @@ class rangeMaxQuery:
             root.max = max(root.left.max, root.right.max)
         return
 
-    def rangeMaxQuery(self, start, end):
+    def range_max_query(self, start, end):
         """
         maximum value query in range(start, end)
         @param: int start
         @param: int end
         """
-        return self._maxquery(self.root, start, end)
+        return self._max_query(self.root, start, end)
         
-    def _maxquery(self, root, start, end):
+    def _max_query(self, root, start, end):
         """
         help func for range max query
         @param: SegmentTreeNode root
@@ -100,10 +100,16 @@ class rangeMaxQuery:
         mid = (root.start + root.end) // 2
         ans = -sys.maxsize
         if mid >= start:
-            ans = max(ans, self._maxquery(root.left, start, end))
+            ans = max(ans, self._max_query(root.left, start, end))
         if mid + 1 <= end:
-            ans = max(ans, self._maxquery(root.right, start, end))
+            ans = max(ans, self._max_query(root.right, start, end))
         return ans
+
+
+        
+
+
+
 
 
 
