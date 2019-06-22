@@ -1,1 +1,1 @@
-from .rangemaxquery import *
+from .core import *

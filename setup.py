@@ -100,7 +100,7 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     url=URL,
-    py_modules=['rangeMaxQuery'],
+    py_modules=['rangeMaxQuery.core'],
     entry_points={
         'console_scripts': ['mycli=mymodule:cli'],
     },
