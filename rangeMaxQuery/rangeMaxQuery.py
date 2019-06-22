@@ -1,6 +1,3 @@
-from sys import maxsize
-from collections import deque
-
 class SegmentTreeNode:
     def __init__(self, start, end, max_val):
         self.start = start
@@ -56,32 +53,14 @@ class NumArray:
         if start <= root.start and root.start <= end:
             return root.max
         mid = (root.start + root.end) // 2
-        ans = -maxsize
+        ans = -sys.maxsize
         if mid >= start:
             ans = max(ans, self._maxquery(root.left, start, end))
         if mid + 1 <= end:
             ans = max(ans, self._maxquery(root.right, start, end))
         return ans
 
-def print_root(root):
-    results = []
-    queue = deque()
-    queue.append(root)
 
-    while len(queue):
-        node = queue.popleft()
-        results.append((node.start, node.end, node.max))
-        if node.left:
-            queue.append(node.left)
-        if node.right:
-            queue.append(node.right)
-    print(results)
-
-
-
-a1 = NumArray([2, 3, 4, 1, 6, 7, 10, 5])
-# print_root(a1.root)
-print(a1.rangeMaxQuery(1, 7))
 
 
 

@@ -12,16 +12,17 @@ from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
 # Package meta-data.
-NAME = 'HashHeap'
-DESCRIPTION = 'Python implementation of java TreeMap. Hope similar data structure can be added to python offical library.'
-URL = 'https://github.com/AlexHtZhang/HashHeap'
-EMAIL = 'alexander.ht.zhang@gmail.com'
-AUTHOR = 'AlexHtZhang'
+NAME = 'rangeMaxQuery'
+DESCRIPTION = 'Python implementation of range maximum query in O(logn).'
+URL = 'https://github.com/cassieHuanghahaha/rangeMaxQuery'
+EMAIL = 'cassiehuang1111@gmail.com'
+AUTHOR = 'CassiezhHuang'
 REQUIRES_PYTHON = '>=3.6.0'
 VERSION = None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
+
 
 ]
 
@@ -99,7 +100,7 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     url=URL,
-    py_modules=['hashheap'],
+    py_modules=['rangeMaxQuery'],
     entry_points={
         'console_scripts': ['mycli=mymodule:cli'],
     },
